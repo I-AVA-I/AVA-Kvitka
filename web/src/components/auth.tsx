@@ -104,7 +104,7 @@ export function AuthDialog({
         isModal={true}
       >
         <div className="overflow-y-auto">
-          <AuthBanner />
+          {/* <AuthBanner /> */}
           <div className="px-6 pb-6 pt-4 overflow-y-auto">
             <Form {...form}>
               <form
@@ -112,8 +112,8 @@ export function AuthDialog({
                 className="flex flex-col gap-4"
               >
                 <DialogHeader className="gap-2">
-                  <DialogTitle>OpenAI Realtime API Playground</DialogTitle>
-                  <DialogDescription>
+                  <DialogTitle className="mb-[2vh] mt-[1vh]">Kvitka Polonyny Voice Assistant</DialogTitle>
+                  {/* <DialogDescription>
                     Try out OpenAI&apos;s new Realtime API right from your
                     browser with this playground built on{" "}
                     <a
@@ -124,7 +124,7 @@ export function AuthDialog({
                       LiveKit Agents
                     </a>
                     .
-                  </DialogDescription>
+                  </DialogDescription> */}
                   <DialogDescription>
                     You must have a valid{" "}
                     <a
@@ -134,7 +134,7 @@ export function AuthDialog({
                     >
                       OpenAI API key
                     </a>{" "}
-                    to connect the playground to your own OpenAI platform
+                    to connect the Voice Assistant to your own OpenAI platform
                     account.
                   </DialogDescription>
                 </DialogHeader>
@@ -180,7 +180,7 @@ export function AuthDialog({
                     </span>
                   </div>
 
-                  <div className="flex items-center flex-1 justify-end">
+                  {/* <div className="flex items-center flex-1 justify-end">
                     <a
                       href="https://github.com/livekit-examples/realtime-playground"
                       target="_blank"
@@ -190,7 +190,7 @@ export function AuthDialog({
                       <GitHubLogoIcon className="h-5 w-5" />
                       View source on GitHub
                     </a>
-                  </div>
+                  </div> */}
                 </DialogDescription>
               </form>
             </Form>
