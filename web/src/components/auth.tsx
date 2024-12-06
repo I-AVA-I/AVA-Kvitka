@@ -46,7 +46,7 @@ export function Auth() {
   };
 
   return (
-    <div>
+    <div className="ml-auto">
       {pgState.openaiAPIKey && (
         <div className="text-xs flex gap-2 items-center">
           <span className="font-semibold text-neutral-700">
