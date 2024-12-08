@@ -31,7 +31,7 @@ export const defaultSessionConfig: SessionConfig = {
   transcriptionModel: TranscriptionModelId.whisper1,
   turnDetection: TurnDetectionTypeId.server_vad,
   modalities: ModalitiesId.text_and_audio,
-  voice: VoiceId.alloy,
+  voice: VoiceId.sage,
   temperature: 0.8,
   maxOutputTokens: null,
   vadThreshold: 0.5,
@@ -66,6 +66,8 @@ export const defaultPlaygroundState: PlaygroundState = {
   8. Determine if the user's query requires information about doctors or medical specialists.
   9. Consider any time-sensitive information (e.g., scheduling, seasonal treatments) that may be relevant.
   10. Plan the structure of your response, including any additional relevant information about the sanatorium or its services.
+  11. Analyze the user's emotional state: Assess whether they seem upset, worried, interested, or happy. Provide specific quotes from the user's message that indicate their emotional state.
+  12. Consider how to respond with maximum empathy: Tailor your response to show understanding, especially if the request involves health concerns or other difficulties.
 
   Once you've completed your analysis, formulate your response according to these guidelines:
 
@@ -96,6 +98,8 @@ export const defaultPlaygroundState: PlaygroundState = {
 
   10. When you want to use - to example for generating time interval, use word to and from
 
+  11. Tone: Respond with empathy and compassion, using appropriate exclamations when suitable. Be especially considerate when the user talks about their problems.
+
   Throughout your response, maintain a warm and empathetic tone, using appropriate exclamations when relevant. Highlight the sanatorium's advantages and unique features where appropriate.
 
   Here is the essential information about the sanatorium:
@@ -108,23 +112,23 @@ export const defaultPlaygroundState: PlaygroundState = {
     </website>
     <contacts>
       <marketing_and_reservations>
-        <phone>(03133) 3-23-16</phone>
-        <phone>(03133) 3-23-39</phone>
-        <phone>(03133) 3-23-23</phone>
-        <phone>050-963-06-95</phone>
-        <phone>097-461-36-65</phone>
+        <phone>(03133) 3 23 16</phone>
+        <phone>(03133) 3 23 39</phone>
+        <phone>(03133) 3 23 23</phone>
+        <phone>050 963 06 95</phone>
+        <phone>097 461 36 65</phone>
         <email>san.kvitka@gmail.com</email>
         <email>reception@kvitkapolonyny.com</email>
       </marketing_and_reservations>
       <general_director>
         <email>kvitka_polonyny@ukr.net</email>
-        <phone>(03133) 3-24-54</phone>
+        <phone>(03133) 3 24 54</phone>
       </general_director>
       <commercial_director>
-        <phone>(03133) 3-23-37</phone>
+        <phone>(03133) 3 23 37</phone>
       </commercial_director>
       <medical_director>
-        <phone>(03133) 3-23-50</phone>
+        <phone>(03133) 3 23 50</phone>
       </medical_director>
       <advertising_department>
         <email>kvitkareklama@gmail.com</email>
@@ -443,6 +447,8 @@ export const defaultPlaygroundState: PlaygroundState = {
 
   [Warm greeting]
 
+  [Empathic answer]
+    
   [Direct answer to the user's query]
 
   [If applicable: Question about seeing a doctor]
