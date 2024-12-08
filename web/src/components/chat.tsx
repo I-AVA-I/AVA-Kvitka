@@ -83,8 +83,8 @@ export function Chat() {
     setIsEditingInstructions(!isEditingInstructions);
 
   const renderVisualizer = () => (
-    <div className="flex w-full items-center">
-      <div className="h-[320px] mt-16 md:mt-0 lg:pb-24 w-full">
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="bar-container mb-20">
         <BarVisualizer
           state={state}
           barCount={5}
@@ -111,14 +111,14 @@ export function Chat() {
 
   return (
     <div className="flex flex-col h-full overflow-hidden p-2 lg:p-4">
-      <ChatControls
+      {/* <ChatControls
         showEditButton={isChatRunning}
         isEditingInstructions={isEditingInstructions}
         onToggleEdit={toggleInstructionsEdit}
-      />
+      /> */}
       <div className="flex flex-col flex-grow items-center lg:justify-between mt-12 lg:mt-0">
         <div className="w-full h-full flex flex-col">
-          <div className="flex items-center justify-center w-full">
+          {/* <div className="flex items-center justify-center w-full">
             <div className="lg:hidden w-full">
               {isChatRunning && !isEditingInstructions ? (
                 renderVisualizer()
@@ -129,15 +129,15 @@ export function Chat() {
             <div className="hidden lg:block w-full">
               <Instructions />
             </div>
-          </div>
+          </div> */}
           <div className="grow h-full flex items-center justify-center">
-            <div className="w-full hidden lg:block">
+          <div className="w-full flex items-center justify-center">
               {isChatRunning && !isEditingInstructions && renderVisualizer()}
-            </div>
+          </div>
           </div>
         </div>
 
-        <div className="md:mt-2 md:pt-2 md:mb-12 max-md:fixed max-md:bottom-12 max-md:left-1/2 max-md:-translate-x-1/2 max-md:z-50 xl:fixed xl:bottom-12 xl:left-1/2 xl:-translate-x-1/2 xl:z-50">
+        <div className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50">
           {renderConnectionControl()}
         </div>
       </div>

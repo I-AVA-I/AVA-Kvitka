@@ -33,13 +33,13 @@ export function RoomComponent() {
       }}
     >
       <AgentProvider>
-        <div className="hidden lg:block h-full overflow-y-auto relative border-r">
+        {/* <div className="hidden lg:block h-full overflow-y-auto relative border-r">
           <ConfigurationForm />
-        </div>
+        </div> */}
         <div className="flex flex-col justify-center w-full max-w-3xl mx-auto">
           <Chat />
         </div>
-        <div className="hidden md:flex flex-col h-full overflow-y-hidden border-l relative">
+        {/* <div className="hidden md:flex flex-col h-full overflow-y-hidden border-l relative">
           <div
             className="flex-grow overflow-y-auto"
             ref={transcriptContainerRef}
@@ -58,7 +58,7 @@ export function RoomComponent() {
               <span className="text-xs pr-1">View latest</span>
             </button>
           </div>
-        </div>
+        </div> */}
         <RoomAudioRenderer />
         <StartAudio label="Click to allow audio playback" />
       </AgentProvider>

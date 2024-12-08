@@ -51,15 +51,39 @@ html {
   pointer-events: none;
 }
 
+.bar-container{
+  height: 480px !important;
+  
+}
+
+@media (max-width: 700px) {
+  .bar-container{
+    height: 320px !important;
+  }
+}
+
 .lk-audio-bar-visualizer {
   gap: 12px !important;
 
   & > .lk-audio-bar {
     /* aspect-ratio: 1/1; */
     /* width: auto !important; */
-    width: 64px !important;
-    min-height: 64px !important;
+    width: 128px !important;
+    min-height: 128px !important;
+    border-radius: 64px !important;
     background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+
+  @media (max-width: 700px) {
+    .lk-audio-bar {
+      width: 64px !important;
+      min-height: 64px !important;
+      border-radius: 32px !important;
+    }
+
+    .bar-container{
+      height: 320px !important;
+    }
   }
 
   &[data-lk-va-state='speaking'] > .lk-audio-bar,
@@ -72,6 +96,8 @@ html {
     @apply bg-black/10 !important;
   }
 }
+
+
 
 @font-face {
   font-family: 'Commit Mono';

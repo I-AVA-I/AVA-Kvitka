@@ -112,6 +112,7 @@ def run_multimodal_agent(ctx: JobContext, participant: rtc.Participant):
         max_response_output_tokens=config.max_response_output_tokens,
         modalities=config.modalities,
         turn_detection=config.turn_detection,
+        # model="ft:gpt-4o-mini-2024-07-18:fai-s-tudio:kvitka:ATGvsK8F",
     )
     assistant = MultimodalAgent(model=model)
     assistant.start(ctx.room)
