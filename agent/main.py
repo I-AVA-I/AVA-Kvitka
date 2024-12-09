@@ -59,7 +59,7 @@ def parse_session_config(data: Dict[str, Any]) -> SessionConfig:
         turn_detection = openai.realtime.ServerVadOptions(
             threshold=turn_detection_json.get("threshold", 0.5),
             prefix_padding_ms=turn_detection_json.get("prefix_padding_ms", 200),
-            silence_duration_ms=turn_detection_json.get("silence_duration_ms", 300),
+            silence_duration_ms=turn_detection_json.get("silence_duration_ms", 1500),
         )
     else:
         turn_detection = openai.realtime.DEFAULT_SERVER_VAD_OPTIONS

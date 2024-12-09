@@ -53,9 +53,9 @@ export async function POST(request: Request) {
       openai_api_key: openaiAPIKey,
       turn_detection: JSON.stringify({
         type: turnDetection,
-        threshold: vadThreshold,
-        silence_duration_ms: vadSilenceDurationMs,
-        prefix_padding_ms: vadPrefixPaddingMs,
+        threshold: 0.5, //vadThreshold,
+        silence_duration_ms: 1500, // vadSilenceDurationMs,
+        prefix_padding_ms: 200, //vadPrefixPaddingMs,
       }),
     }),
   });
