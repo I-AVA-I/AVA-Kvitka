@@ -39,7 +39,7 @@ WORKDIR /home/appuser
 COPY agent/requirements.txt .
 RUN python -m pip install --user --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY ./agent/ .
 
 # ensure that any dependent models are downloaded at build-time
 RUN python main.py download-files
