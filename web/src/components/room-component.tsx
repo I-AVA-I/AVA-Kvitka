@@ -9,7 +9,7 @@ import {
 import { Chat } from "@/components/chat";
 import { useConnection } from "@/hooks/use-connection";
 import { AgentProvider } from "@/hooks/use-agent";
-import { useRef } from "react";
+import React from "react";
 
 export function RoomComponent() {
   const { shouldConnect, wsUrl, token } = useConnection();

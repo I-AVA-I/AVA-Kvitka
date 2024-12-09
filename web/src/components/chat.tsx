@@ -20,7 +20,7 @@ export function Chat() {
   const [isChatRunning, setIsChatRunning] = useState(false);
   const { agent } = useAgent();
   const { disconnect } = useConnection();
-  const [isEditingInstructions, setIsEditingInstructions] = useState(false);
+  const [isEditingInstructions, _] = useState(false);
 
   const [hasSeenAgent, setHasSeenAgent] = useState(false);
 
