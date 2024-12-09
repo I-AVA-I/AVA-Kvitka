@@ -36,7 +36,7 @@ RUN chown -R appuser /home/appuser/.cache
 
 WORKDIR /home/appuser
 
-COPY requirements.txt .
+COPY agent/requirements.txt .
 RUN python -m pip install --user --no-cache-dir -r requirements.txt
 
 COPY . .
