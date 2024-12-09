@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Instructions } from "@/components/instructions";
 import { SessionControls } from "@/components/session-controls";
 import { ConnectButton } from "./connect-button";
 import { ConnectionState } from "livekit-client";
@@ -11,7 +10,6 @@ import {
   useVoiceAssistant,
   BarVisualizer,
 } from "@livekit/components-react";
-import { ChatControls } from "@/components/chat-controls";
 import { useAgent } from "@/hooks/use-agent";
 import { useConnection } from "@/hooks/use-connection";
 import { toast } from "@/hooks/use-toast";
@@ -78,9 +76,6 @@ export function Chat() {
       if (appearanceTimer) clearTimeout(appearanceTimer);
     };
   }, [connectionState, agent, disconnect, hasSeenAgent]);
-
-  const toggleInstructionsEdit = () =>
-    setIsEditingInstructions(!isEditingInstructions);
 
   const renderVisualizer = () => (
     <div className="absolute inset-0 flex items-center justify-center">

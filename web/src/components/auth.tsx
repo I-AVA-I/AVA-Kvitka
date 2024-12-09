@@ -24,10 +24,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ellipsisMiddle } from "@/lib/utils";
-import { AuthBanner } from "./authBanner";
 import { LockKeyhole } from "lucide-react";
 import { ArrowUpRight } from "lucide-react";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 const AuthFormSchema = z.object({
   openaiAPIKey: z.string().min(1, { message: "API key is required" }),

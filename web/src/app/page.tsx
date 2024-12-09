@@ -1,16 +1,12 @@
-import { Header } from "@/components/header";
 import { RoomComponent } from "@/components/room-component";
 import { Auth } from "@/components/auth";
-import LK from "@/components/lk";
-import Heart from "@/assets/heart.svg";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { defaultPresets } from "@/data/presets";
 import { Metadata } from "next";
 
 export async function generateMetadata({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: { [_: string]: string | string[] | undefined };
 }): Promise<Metadata> {
   let title = "Kvitka Polonyny Playground";
   let description =

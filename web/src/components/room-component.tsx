@@ -6,18 +6,13 @@ import {
   StartAudio,
 } from "@livekit/components-react";
 
-import { ConfigurationForm } from "@/components/configuration-form";
 import { Chat } from "@/components/chat";
-import { Transcript } from "@/components/transcript";
 import { useConnection } from "@/hooks/use-connection";
 import { AgentProvider } from "@/hooks/use-agent";
 import { useRef } from "react";
-import { ChevronDown } from "lucide-react";
 
 export function RoomComponent() {
   const { shouldConnect, wsUrl, token } = useConnection();
-  const transcriptContainerRef = useRef<HTMLDivElement>(null);
-  const scrollButtonRef = useRef<HTMLButtonElement>(null);
   return (
     <LiveKitRoom
       serverUrl={wsUrl}
