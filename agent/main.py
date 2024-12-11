@@ -3,7 +3,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
-import os
+# import os
 import uuid
 from dataclasses import asdict, dataclass
 from typing import Any, Dict, Literal
@@ -25,28 +25,106 @@ logger.setLevel(logging.INFO)
 
 
 # Set environment variables
-os.environ["LIVEKIT_URL"] = "wss://kvitka-polonyna-g7za18xm.livekit.cloud"
-os.environ["LIVEKIT_API_KEY"] = "APIpvgqjCvqxeMr"
-os.environ["LIVEKIT_API_SECRET"] = "2Hse4qYdbIfpPFRsSY6q0aoMf6LShqjQsDbAZtPfEMvD"
+# os.environ["LIVEKIT_URL"] = "wss://kvitka-polonyna-g7za18xm.livekit.cloud"
+# os.environ["LIVEKIT_API_KEY"] = "APIpvgqjCvqxeMr"
+# os.environ["LIVEKIT_API_SECRET"] = "2Hse4qYdbIfpPFRsSY6q0aoMf6LShqjQsDbAZtPfEMvD"
 
 # Define a function context class with your function(s)
 class AssistantFnc(llm.FunctionContext):
     @llm.ai_callable()
-    async def get_water_info(
-        self,
-    ):
+    async def get_water_info(self):
         """
         Called when the user asks about water. This function will return
         information about water. The LLM can call this function to retrieve details about
         different types of water, their properties, and general facts.
         """
-        logger.info(f"getting info about water")
+        logger.info(f"Getting info about water")
         return (
-            f"'Our sanatorium have one famous water - Arick #7. It is fundamentally H2O—two hydrogen atoms and one oxygen atom. "
-            f"It is essential for life, and heals headaches. "
+            "'Kvitka Polonyny' is the only resort in Transcarpathia with three times more balneological healing options compared to other health resorts.\n"
+            "This is due to its powerful hydro-mineral resources, offering three types of mineral water: \"Luzhanska-4\", \"Luzhanska-7\", and \"Polyana Kvasova\".\n"
+            "Mineral water is directly supplied from the source to the pump room, bath department, and other procedure rooms.\n\n"
+            "1. **Luzhanska-4**:\n"
+            "   - Origin: Originally named \"Margit\", this low-mineralized bicarbonate sodium water is known for its ability to neutralize stomach acidity, relieve indigestion, and improve bile flow.\n"
+            "   - Uses: Treats gastrointestinal issues, kidney diseases, and enhances cardiovascular function through external carbonated mineral baths.\n\n"
+            "2. **Luzhanska-7**:\n"
+            "   - Highlights: This medium-mineralized water contains biologically active calcium and metasilicic acid. It supports fat metabolism, acts as an expectorant, and provides antioxidant benefits.\n"
+            "   - Uses: Beneficial for liver diseases, diabetes, and respiratory conditions. Suitable for both healthy individuals and children.\n\n"
+            "3. **Polyana Kvasova**:\n"
+            "   - Features: Formed at depths of 300-500 meters, making it highly protected from contamination. Known as the \"queen of lithium bicarbonate alkaline mineral waters\".\n"
+            "   - Uses: Highly effective for treating ulcers, gastritis, and conditions with increased acidity. Its bicarbonate content exceeds that of popular \"Borjomi\", making it superior for neutralizing acidity.\n\n"
+            "These mineral waters are also used in therapies such as natural carbonated baths, mineral water inhalations, and gynecological irrigation."
         )
 
-# Instantiate the function context
+    @llm.ai_callable()
+    async def get_healthcare_procedures(self):
+        """
+        Called when the user asks about procedures. This function will return
+        information about the sanatorium's healthcare procedures.
+        """
+        logger.info(f"Getting info about procedures")
+        return (
+            "Here is information about the sanatorium's healthcare procedures:\n\n"
+            "1. **Balneotherapy**:\n"
+            "   - Description: Therapeutic use of mineral water baths for conditions like arthritis, cardiovascular issues, and stress disorders.\n"
+            "   - Benefits: Improves joint mobility, enhances cardiovascular function, and reduces chronic pain.\n"
+            "   - Applications: Thermal Baths, Mineral Drinking Cure.\n\n"
+            "2. **Physiotherapy**:\n"
+            "   - Description: Physical methods like exercises and modern technology to restore movement and function.\n"
+            "   - Benefits: Improves mobility, relieves chronic pain, and enhances strength and endurance.\n"
+            "   - Applications: Electrotherapy, Therapeutic Exercises.\n\n"
+            "3. **Mud Therapy (Peloid Therapy)**:\n"
+            "   - Description: Application of therapeutic mud to reduce inflammation and promote healing.\n"
+            "   - Benefits: Relieves pain, improves circulation, and accelerates tissue regeneration.\n"
+            "   - Applications: Direct Application, Mud Baths.\n\n"
+            "4. **Rehabilitation**:\n"
+            "   - Description: Comprehensive programs for recovery from surgeries, injuries, or chronic illnesses.\n"
+            "   - Benefits: Restores functional independence, enhances quality of life, and reduces risk of complications.\n"
+            "   - Applications: Post-surgical Rehabilitation, Neurological Rehabilitation."
+        )
+
+    @llm.ai_callable()
+    async def get_doctors_info(self):
+        """
+        Called when the user asks about available doctors. This function will return
+        information about the doctors at the sanatorium.
+        """
+        logger.info(f"Getting info about doctors")
+        return (
+            "Here is a list of available doctors at the sanatorium:\n\n"
+            "1. **Doctor Olena Kovalenko**\n"
+            "   - Specialization: Balneologist\n"
+            "   - Phone: +380 50 123 4567\n"
+            "   - Work Hours: Monday - Friday, 9:00 - 17:00\n\n"
+            "2. **Doctor Ivan Petrov**\n"
+            "   - Specialization: Physiotherapist\n"
+            "   - Phone: +380 67 234 5678\n"
+            "   - Work Hours: Tuesday - Saturday, 8:00 - 16:00\n\n"
+            "3. **Doctor Natalia Shevchenko**\n"
+            "   - Specialization: Rehabilitation Specialist\n"
+            "   - Phone: +380 63 345 6789\n"
+            "   - Work Hours: Monday - Friday, 10:00 - 18:00\n\n"
+            "4. **Doctor Mikhail Lysenko**\n"
+            "   - Specialization: Orthopedist\n"
+            "   - Phone: +380 95 456 7890\n"
+            "   - Work Hours: Wednesday - Sunday, 9:00 - 17:00\n\n"
+            "5. **Doctor Anna Smirnova**\n"
+            "   - Specialization: Nutritionist\n"
+            "   - Phone: +380 66 567 8901\n"
+            "   - Work Hours: Monday - Friday, 9:00 - 16:00\n\n"
+            "6. **Doctor Vasyl Koval**\n"
+            "   - Specialization: Cardiologist\n"
+            "   - Phone: +380 68 678 9012\n"
+            "   - Work Hours: Monday - Saturday, 10:00 - 18:00\n\n"
+            "7. **Doctor Daria Bondarenko**\n"
+            "   - Specialization: Dermatologist\n"
+            "   - Phone: +380 97 789 0123\n"
+            "   - Work Hours: Tuesday - Saturday, 9:00 - 15:00\n\n"
+            "8. **Doctor Oleksandr Tkachuk**\n"
+            "   - Specialization: Respiratory Therapist\n"
+            "   - Phone: +380 73 890 1234\n"
+            "   - Work Hours: Wednesday - Sunday, 8:00 - 14:00"
+        )
+
 fnc_ctx = AssistantFnc()
 
 @dataclass
