@@ -22,6 +22,26 @@ from livekit.plugins import openai
 logger = logging.getLogger("my-worker")
 logger.setLevel(logging.INFO)
 
+# Define a function context class with your function(s)
+class AssistantFnc(llm.FunctionContext):
+    @llm.ai_callable()
+    async def get_water_info(
+        self,
+    ):
+        """
+        Called when the user asks about water. This function will return
+        information about water. The LLM can call this function to retrieve details about
+        different types of water, their properties, and general facts.
+        """
+        logger.info(f"getting info about water")
+        return (
+            f"'Our sanatorium have one famous water - Arick #7. It is fundamentally H2O—two hydrogen atoms and one oxygen atom. "
+            f"It is essential for life, and heals headaches. "
+        )
+
+# Instantiate the function context
+fnc_ctx = AssistantFnc()
+
 @dataclass
 class SessionConfig:
     openai_api_key: str
@@ -110,7 +130,7 @@ def run_multimodal_agent(ctx: JobContext, participant: rtc.Participant):
         turn_detection=config.turn_detection,
         # model="ft:gpt-4o-mini-2024-07-18:fai-s-tudio:kvitka:ATGvsK8F",
     )
-    assistant = MultimodalAgent(model=model)
+    assistant = MultimodalAgent(model=model, fnc_ctx=fnc_ctx)
     assistant.start(ctx.room)
     session = model.sessions[0]
 
