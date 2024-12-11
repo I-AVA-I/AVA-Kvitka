@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import os
 import uuid
 from dataclasses import asdict, dataclass
 from typing import Any, Dict, Literal
@@ -21,6 +22,12 @@ from livekit.plugins import openai
 
 logger = logging.getLogger("my-worker")
 logger.setLevel(logging.INFO)
+
+
+# Set environment variables
+os.environ["LIVEKIT_URL"] = "wss://kvitka-polonyna-g7za18xm.livekit.cloud"
+os.environ["LIVEKIT_API_KEY"] = "APIpvgqjCvqxeMr"
+os.environ["LIVEKIT_API_SECRET"] = "2Hse4qYdbIfpPFRsSY6q0aoMf6LShqjQsDbAZtPfEMvD"
 
 # Define a function context class with your function(s)
 class AssistantFnc(llm.FunctionContext):
